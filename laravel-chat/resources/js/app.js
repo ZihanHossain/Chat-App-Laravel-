@@ -36,12 +36,12 @@ message_form.addEventListener("submit", function (e) {
 });
 
 window.Echo.channel("chat").listen(".message", (e) => {
-    if (e.send_to == username) {
-        message_el.innerHTML +=
-            '<div class = "message"><strong>' +
-            e.username +
-            ":</strong>" +
-            e.message +
-            "</div>";
-    }
+    // if (e.send_to == username) {
+    message_el.innerHTML +=
+        '<div class = "message"><strong>' +
+        e.username +
+        ":</strong>" +
+        e.message +
+        "</div>";
+    // }
 });

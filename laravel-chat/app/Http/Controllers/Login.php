@@ -17,11 +17,11 @@ class Login extends Controller
         $user = User::where('username', $req->username)
             ->where('password', $req->password)
             ->first();
-
+        
         if($user)
         {
             $req->session()->put('username', $req->username);
-            return redirect('/index');
+            return redirect('/home');
         }
         else
         {

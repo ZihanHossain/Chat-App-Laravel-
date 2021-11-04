@@ -13,7 +13,7 @@
         <header>
             <span>Welcome: <strong id="username">{{session()->get('username')}}</strong></span>
             <sapn><a href="/logout"><button>Log Out</button></a></sapn>
-            <h1>Let's Talk!</h1>
+            <!-- <h1>Let's Talk With <span id="send_to">{{session()->get('send_to')}}</span>!</h1> -->
             <!-- <input type="text" name="username" id="username" placeholder="PLease enter your username..." /> -->
             <input type="text" name="send_to" id="send_to" placeholder="PLease enter recever's username..." />
         </header>
