@@ -31,7 +31,7 @@ class Registration extends Controller
 
             $req->session()->put('username', $req->username);
 
-            return redirect('/index');
+            return redirect('/home');
         }
 
         return view('registration')->with('alert', 'User Already exists!');

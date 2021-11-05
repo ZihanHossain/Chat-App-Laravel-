@@ -2097,9 +2097,11 @@ message_form.addEventListener("submit", function (e) {
   axios(options);
 });
 window.Echo.channel("chat").listen(".message", function (e) {
+
   if (e.send_to == username || e.username == username) {
     message_el.innerHTML += '<div class = "message"><strong>' + e.username + ":</strong>" + e.message + "</div>";
   }
+
 });
 
 /***/ }),

@@ -8,10 +8,12 @@
 </head>
 <body>
     <h1>Who you want to chat with?</h1>
+
     <ul>
         @foreach($users as $user)
         <li><a href="/index/{{$user['username']}}">{{$user['username']}}</a></li>
         @endforeach
     </ul>
+
 </body>
 </html>
