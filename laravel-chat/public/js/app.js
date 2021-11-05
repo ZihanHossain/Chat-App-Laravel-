@@ -2070,7 +2070,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var message_el = document.getElementById("messages");
 var username = document.getElementById("username").innerHTML;
-var send_to_input = document.getElementById("send_to");
+var send_to_input = document.getElementById("send_to").innerHTML;
 var message_input = document.getElementById("message_input");
 var message_form = document.getElementById("message_form");
 message_form.addEventListener("submit", function (e) {
@@ -2091,14 +2091,17 @@ message_form.addEventListener("submit", function (e) {
     url: "/send-message",
     data: {
       message: message_input.value,
-      send_to: send_to_input.value
+      send_to: send_to_input
     }
   };
   axios(options);
 });
 window.Echo.channel("chat").listen(".message", function (e) {
-  // if (e.send_to == username) {
-  message_el.innerHTML += '<div class = "message"><strong>' + e.username + ":</strong>" + e.message + "</div>"; // }
+
+  if (e.send_to == username || e.username == username) {
+    message_el.innerHTML += '<div class = "message"><strong>' + e.username + ":</strong>" + e.message + "</div>";
+  }
+
 });
 
 /***/ }),
