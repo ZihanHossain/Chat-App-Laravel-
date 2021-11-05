@@ -25,7 +25,10 @@ Route::post('/loginvarify', 'App\Http\Controllers\Login@varify');
 
 Route::get('/logout', 'App\Http\Controllers\Logout@logout');
 
+Route::get('/home', 'App\Http\Controllers\Home@index');
+
 Route::get('/index', 'App\Http\Controllers\Index@index')->middleware('varifylogin');
+Route::get('/index/{send_to}', 'App\Http\Controllers\Index@setRecever')->middleware('varifylogin');
 
 Route::get('/registration', 'App\Http\Controllers\Registration@index');
 Route::post('/register', 'App\Http\Controllers\Registration@register');

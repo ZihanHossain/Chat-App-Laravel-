@@ -21,7 +21,7 @@ class Login extends Controller
         if($user)
         {
             $req->session()->put('username', $req->username);
-            return redirect('/index');
+            return redirect('/home');
         }
         else
         {

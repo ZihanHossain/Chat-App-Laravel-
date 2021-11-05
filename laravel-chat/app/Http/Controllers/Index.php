@@ -10,4 +10,10 @@ class Index extends Controller
     {
         return view('index');
     }
+    function setRecever(Request $req, $send_to)
+    {
+        $req->session()->put('send_to', $send_to);
+
+        return redirect('/index');
+    }
 }

@@ -5,7 +5,7 @@ require("./bootstrap");
 
 const message_el = document.getElementById("messages");
 const username = document.getElementById("username").innerHTML;
-const send_to_input = document.getElementById("send_to");
+const send_to_input = document.getElementById("send_to").innerHTML;
 const message_input = document.getElementById("message_input");
 const message_form = document.getElementById("message_form");
 
@@ -28,7 +28,7 @@ message_form.addEventListener("submit", function (e) {
         url: "/send-message",
         data: {
             message: message_input.value,
-            send_to: send_to_input.value,
+            send_to: send_to_input,
         },
     };
 
@@ -36,7 +36,7 @@ message_form.addEventListener("submit", function (e) {
 });
 
 window.Echo.channel("chat").listen(".message", (e) => {
-    if (e.send_to == username) {
+    if (e.send_to == username || e.username == username) {
         message_el.innerHTML +=
             '<div class = "message"><strong>' +
             e.username +
